@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <script type="text/javascript">
+        //Ejemplo 2 pagina 4
+        function f (param1){
+            alert(param1);
+        }
+
+        //INICIO de codigo de Mostrar mensaje que no funciona
+        //Para probarlo, descomentar. Para que funcione el resto de codigo js de esta etiqueta, comentar.
+        /*
+        function mostrarMensaje(){
+	        alert("Mensaje que NO funciona porque no cargó la pagina");
+        }
+        document.getElementById("miObjeto").onclick=mostrarMensaje;
+        */
+        //FIN de codigo de Mostrar mensaje que no funciona
+
+        //(1)INICIO de codigo Mostrar mensaje que ahora ya funciona
+        window.onload = function() {
+            //Ejemplo 1 pagina 5
+            function mostrarMensajeFunciona(){
+	            alert("Mensaje que funciona al cargar la pagina");
+            }
+            document.getElementById("miObjetoFunciona").onclick=mostrarMensajeFunciona;
+
+            //Ejemplo 2 pagina 5
+            function mostrarEvento(evento){
+	            alert(evento.type);
+            }
+            document.getElementById("miObjetoMostrarEvento").onclick=mostrarEvento;
+
+            //Ejemplo 1 pagina 6
+            function mostrarInfoEvento(evento){
+                //Salta al pulsar una tecla del teclado teniendo el navegadir como primer plano.
+                if(evento.type=="keyup"){
+		            alert("Tecla en mostrar Info de Evento: " + evento.keyCode);
+                }
+                //Se ejecuta al pulsar el raton.
+	            else if(evento.type=="click"){
+		            alert("Coordenadas en mostrar Info de Evento: " + evento.clientX+" "+evento.clientY);	
+	            }
+            }
+            document.getElementById("mostrarInfoEvento").onclick=mostrarInfoEvento;
+            document.onkeyup=mostrarInfoEvento;
+
+            //Ejemplo 2 pagina 6 - Declarando eventos de código
+            function eventosDeCodigo(evento){
+            	if(evento.type=="keyup"){
+            		alert("Tecla en eventos de codigo: " + evento.keyCode);
+	            }
+	            else if(evento.type=="click"){
+		            alert("Coordenadas en eventos de codigo: " + evento.clientX+" "+evento.clientY);	
+	            }
+            }   
+            document.getElementById("eventosDeCodigo").addEventListener("click",eventosDeCodigo);
+            document.addEventListener("keyup",eventosDeCodigo);
+            document.getElementById("eventosDeCodigo2").addEventListener("dblclick",function (){
+                alert("Codigo metido directamente en eventos de codigo");
+            });
+        }
+        //FIN de codigo Mostrar mensaje que ahora ya funciona
+
+        </script>
+    </head>
+
+<body>
+    <!-- Ejemplo 1 pagina 4 -->
+    <input type="button" value="Boton Hola mundo" onclick="alert('Hola mundo'); alert('Adios'); " />
+    <!-- Ejemplo 2 pagina 4 -->
+    <input type="button" value="Boton miFuncion" onclick="f('cadenaParam1');" />
+    <!-- Ejemplo 3 pagina 4 -->
+    <div id="cont" style="width:150px; height:60px; border:thin solid silver" onmouseover="document.getElementById('cont').style.borderColor='black';" onmouseout="document.getElementById('cont').style.borderColor='red';">
+            Contenidos
+    </div>
+    <!-- Ejemplo 4 pagina 4 -->
+    <div id="cont" style="width:150px; height:60px; border:thin solid silver" onmouseover="this.style.borderColor='black';" onmouseout="this.style.borderColor='red';">
+            Contenidos
+    </div>
+
+    <!-- El evento asociado con el siguiente boton, no funciona 
+    Podemos encontrar la explicación en https://es.stackoverflow.com/questions/74679/uncaught-typeerror-cannot-set-property-onclick-of-null
+    El error en concreto es "Cannot set property 'onclick' of null"
+    La explicación es que el javascript se carga antes de crear el DOM del documento, es decir, los objetos del documento (los botones, los div ...)
+    Para solucionar esto, necesitamos que el codigo js se cargue despues de que cargue el DOM, es decir, despues de que cargue la pagina.
+    Vemos la solución en el codigo js (1)
+    -->
+    <input type="button" value="Aplica mostrar Mensaje que no funciona" id="miObjeto" />
+    <!-- FIN del codigo HTML que no funciona -->
+    <input type="button" value="Aplica mostrar Mensaje que funciona" id="miObjetoFunciona" />
+
+    <input type="button" value="Aplica mostrar Tipo Evento" id="miObjetoMostrarEvento" />
+
+    <input type="button" value="Aplica mostrar Tipo Evento" id="mostrarInfoEvento" />
+
+    <input type="button" value="Aplica mostrar Info Evento" id="eventosDeCodigo" />
+
+    <input type="button" value="Aplica Eventos de Codigo" id="eventosDeCodigo2" />
+
+</body>
+
+</html>

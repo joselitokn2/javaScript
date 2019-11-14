@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/Javascript">
+        window.onload = function() {
+            //Ejemplo 2 pagina 3
+            var ej2pag3 = document.getElementById("ej2pag3");
+            alert("El html de ej2pag3 es " + ej2pag3.innerHTML);
+
+            //Ejemplo 1 pagina 4
+            var ej1pag4 = document.getElementById("ej1pag4")
+            var losP = ej1pag4.getElementsByTagName("p");
+            var num = losP.length;
+            alert("Hay " + num + " <p> elementos en el elemento ej1pag4");
+            alert("En el primer P el HTML asociado es "+losP[0].innerHTML);
+
+            //Ejemplo 2 pagina 4
+            var x = document.getElementsByName("robot");
+            var i;
+            // Todos los checkbox que tengan de name robot, los marcamos
+            for (i = 0; i < x.length; i++) {
+	            if (x[i].type == "checkbox") {
+		            x[i].checked = true;	
+	            }  
+            }
+        }
+        //Ejemplo 3 pagina 4
+        function ej3pag4(){
+            var radio = document.getElementById("borrar");
+            // Obtiene la referencia del padre, y al padre le aplica la función removeChild 
+            var parent = radio.parentNode;
+            parent.removeChild(radio);
+        }
+
+        //Ejemplo 1 pagina 5
+        function ej1pag5() {
+            // Creo un nodo de tipo LI
+            var nuevoNodo = document.createElement("div");
+            // Al nodo LI le asocio un texto (tambien podria asociarle XHTML con innerHTML)
+            var nodoTexto = document.createTextNode("Formulario");
+            nuevoNodo.appendChild(nodoTexto);
+            // A miLista, lista ya existente, le añado el elemento creado
+            document.getElementById("ej1pag5").appendChild(nuevoNodo);   
+        }
+                    
+        </script>
+    </head>
+    <body>
+        <div id="ej2pag3">
+            Este es el div del ejemplo 2 de la pagina 3
+            <a href="www.googlees">Enlace a Google</a>
+            <p> Un parrafo para el ejemplo 2 pagina 3 de la teoria</p>
+        </div>
+        <div id="ej1pag4">
+            <p>
+                Este un párrafo para que compute en el ejemplo 1 de la pagina 4.
+            </p>
+            <p>
+                Este es otro párrafo para que compute en el ejemplo 1 de la pagina 4.
+            </p>
+            <p>
+                Y este el último párrafo que debe computar pero no el párrafo de ej2pag3.
+            </p>
+        </div>
+        <div id="ej2pag4">
+            <form id="ej1pag5">
+                <div>
+                    <input type="checkbox" name="robot" value="robot"> No soy un robot 
+                </div>
+                <div>
+                    <input type="checkbox" name="robot" value="robot2"> Tampoco soy un robot 
+                </div>
+                <div id="borrar">
+                    <input type="checkbox" name="perro" value="perro"> No soy un perro
+                </div>
+                <div>
+                    <input type="radio" name="persona" value="persona"> Soy persona
+                </div>
+                <div>
+                    <input type="button" onclick="ej3pag4()" value="Borrar perro!">
+                </div>
+                <div>
+                    <input type="button" onclick="ej1pag5()" value="Añadir elemento">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

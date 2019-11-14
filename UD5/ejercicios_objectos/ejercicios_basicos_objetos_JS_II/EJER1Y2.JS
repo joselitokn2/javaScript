@@ -4,19 +4,16 @@
  * - Función que comprueba si un determinado objeto contiene una determinada propiedad.
  * Además contiene:
  * - Un ejemplo de string plantilla con expresión que utiliza el operador condicional ternario.
- * 
+ *
  */
 
-
-
-"use strict";
+'use strict';
 
 let cuadro1 = {
-    titulo: "Flor de almendro",
+    titulo: 'Flor de almendro',
     dimx: 73,
-    dimy: 92,
+    dimy: 92
 };
-
 
 const invertir = function(objeto) {
     let o_final = {};
@@ -25,15 +22,15 @@ const invertir = function(objeto) {
         o_final[nueva_clave] = p;
     }
     return o_final;
-}
+};
 
 const recorrer = o => {
-    let str = "";
+    let str = '';
     for (let p in o) {
-        str += " Propiedad " + p + " con valor " + o[p];
+        str += ' Propiedad ' + p + ' con valor ' + o[p];
     }
     return str;
-}
+};
 
 // EJERCICIO 1 : COMPROBACIÓN INVERSIÓN DE VALORES
 /* 1. Escribe en JS una función que permita copiar un objeto de forma que,
@@ -47,9 +44,9 @@ JS una función que compruebe si un determinado objeto con tiene una determinada
 
 const tiene = (objeto, propiedad) => {
     console.log(`El la propiedad ${propiedad} ${objeto.hasOwnProperty(propiedad) ? 'pertenece' : 'no pertenece'} al objeto`);
-}
+};
 
 console.log(cuadro1);
-tiene(cuadro1, "dimy");
-tiene(cuadro1, "titulo");
-tiene(cuadro1, "autor");
+tiene(cuadro1, 'dimy');
+tiene(cuadro1, 'titulo');
+tiene(cuadro1, 'autor');

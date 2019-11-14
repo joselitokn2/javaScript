@@ -8,11 +8,9 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program":  "${file}",
-            "console": "integratedTerminal"   
+            "program": "${file}",
+            "console": "integratedTerminal"
         },
-     
-        
         {
             "type": "chrome",
             "request": "launch",
@@ -20,6 +18,5 @@
             "url": "${file}", //${workspaceFolder}/html/index.html
             "webRoot": "${workspaceFolder}"
         },
-     
     ]
 }

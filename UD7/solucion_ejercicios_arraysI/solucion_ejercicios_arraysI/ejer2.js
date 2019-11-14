@@ -1,7 +1,7 @@
 /* 2. Implementa en JS un código que elimine los elementos de la
 derecha de un array especificando una determinada posición. */
 
-"use strict"
+'use strict';
 //Comentar y descomentar según convenga
 
 //Solución con el metodo slice

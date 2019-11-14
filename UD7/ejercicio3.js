@@ -6,9 +6,9 @@ elementos del array.
 Para resolverlo, utiliza las posiciones dentro del array. */
 
 function devolver() {
-    var x = parseInt(prompt("Introduce numero de elementos a devolver"));
+    var x = parseInt(prompt('Introduce numero de elementos a devolver'));
 
-    const array = ["angel", "clown", "drum", "mandarin", "sturgeon"];
+    const array = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
     array.length = x;
-    document.getElementById("arrayResultado").innerHTML = array.join(" ");
+    document.getElementById('arrayResultado').innerHTML = array.join(' ');
 }

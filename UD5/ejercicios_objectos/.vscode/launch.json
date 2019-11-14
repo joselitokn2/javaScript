@@ -8,8 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program":  "${file}",
-            "console": "integratedTerminal"   
+            "program": "${file}",
+            "console": "integratedTerminal"
         },
         {
             "type": "chrome",

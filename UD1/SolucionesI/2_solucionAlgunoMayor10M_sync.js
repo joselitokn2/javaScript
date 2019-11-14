@@ -1,5 +1,5 @@
+/************************************************/
 
-/************************************************/	
 /*  CODIGO INICIAL A ANYADIR PARA USAR PRINT    */
 /************************************************/
 
@@ -28,9 +28,8 @@ print(n3);
 
 // Si alguno supera 10 mostramos un mensaje, en caso contrario otro
 
-if(n1>10 || n2>10 || n3>10){
-	print("ALGUNO MAYOR QUE 10");
-}else{
-	print("NINGUNO MAYOR QUE 10");
+if (n1 > 10 || n2 > 10 || n3 > 10) {
+    print('ALGUNO MAYOR QUE 10');
+} else {
+    print('NINGUNO MAYOR QUE 10');
 }
-

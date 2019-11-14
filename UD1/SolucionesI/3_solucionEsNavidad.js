@@ -1,4 +1,5 @@
-/************************************************/	
+/************************************************/
+
 /*  CODIGO INICIAL A ANYADIR PARA USAR PRINT    */
 /************************************************/
 
@@ -12,10 +13,8 @@ var mes = parseInt(readlineSync.question('Introduce el mes? '));
 
 // Si alguno supera 10 mostramos un mensaje, en caso contrario otro
 
-if(dia==25 && mes==12){
-	print("SI");
-}else{
-	print("NO");
+if (dia == 25 && mes == 12) {
+    print('SI');
+} else {
+    print('NO');
 }
-
-

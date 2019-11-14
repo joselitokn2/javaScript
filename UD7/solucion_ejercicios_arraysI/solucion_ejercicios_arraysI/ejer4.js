@@ -4,9 +4,11 @@ const filtrar_no_repes = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndex
 //FORMA1
 let numeros = [1, 2, 2, 3, 4, 4, 5];
 console.log(`Prueba 1: ${filtrar_no_repes(numeros)}`);
-console.log(`Prueba 2: ${filtrar_no_repes([1, 2, 3, 4,2])}`);
+console.log(`Prueba 2: ${filtrar_no_repes([1, 2, 3, 4, 2])}`);
 //FORMA2
-const numerosNoRepetidos = [...new Set(numeros)]; /* ... Es un operador de propagación que nos permite convertir el conjunto en un array */
+const numerosNoRepetidos = [
+    ...new Set(numeros)
+]; /* ... Es un operador de propagación que nos permite convertir el conjunto en un array */
 console.log(`Prueba 3: ${numerosNoRepetidos}`);
 
 //FORMA3

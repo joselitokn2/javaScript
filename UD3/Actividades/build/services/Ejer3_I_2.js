@@ -1,10 +1,6 @@
-
-function fecha(){
-    var d=new Date();
+function fecha() {
+    var d = new Date();
     alert(d.toUTCString());
-    
-    
 }
 
-
-setTimeout("fecha();",20000);
+setTimeout('fecha();', 20000);

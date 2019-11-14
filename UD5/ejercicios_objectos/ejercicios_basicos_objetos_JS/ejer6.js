@@ -3,14 +3,14 @@
  * - La creación de un objeto empleado que tiene una propiedad que es otro objeto.
  * - La creación de un objeto empleado que tiene dos propiedades con la misma clave.
  * - La creación de un objeto empleado2 usando prototipado, es decir, se crea a partir de otro objeto (persona)
- * 
+ *
  *  Además contiene:
  * - Ejemplo de propiedad con clave un string con espacios
  * - Ejemplo de acceso a una propiedad cuya clave está asociada a dos propiedades
  * - Ejemplo de acceso a propiedades de objetos y subobjetos.
  */
 
-"use strict";
+'use strict';
 
 /*
 //CREACIÓN DEL EMPLEADO CON UN OBJETO COMO PROPIEDAD PERSONA
@@ -40,40 +40,42 @@ console.log(`\nDespues del borrado -> Empleado con numero ${empleado["num emp"]}
 */
 
 //CREACIÓN DEL EMPLEADO CON PROTOTIPO
-console.log("\n\n ****CREACION DEL EMPLEADO CON PROTOTIPO")
+console.log('\n\n ****CREACION DEL EMPLEADO CON PROTOTIPO');
 let persona = {
-  nombre : "Pepe", 
-  apellido : "Paz",
-  dni : "45454545R"
+    nombre: 'Pepe',
+    apellido: 'Paz',
+    dni: '45454545R'
 };
 
 let empleado2 = Object.create(persona);
-console.log(`Empleado2 tiene por nombre y apellido ${empleado2.nombre} ${empleado2.apellido}. El dni de la persona es ${empleado2.dni}`);
+console.log(
+    `Empleado2 tiene por nombre y apellido ${empleado2.nombre} ${empleado2.apellido}. El dni de la persona es ${empleado2.dni}`
+);
 
-let propiedades = "";
-for(let p in empleado2){
-  propiedades += empleado2[p] + " ";
+let propiedades = '';
+for (let p in empleado2) {
+    propiedades += empleado2[p] + ' ';
 }
-console.log("Se recorren las propiedades de empleado2 y son: " + propiedades);
-console.log( empleado2)
+console.log('Se recorren las propiedades de empleado2 y son: ' + propiedades);
+console.log(empleado2);
 
 //Asignamos nuevas propiedades a empleado2
-empleado2["num emp"] = 56;
-empleado2.dni = "12121212D";
-propiedades = "";
-for(let p in empleado2){
-  propiedades += empleado2[p] + " ";
+empleado2['num emp'] = 56;
+empleado2.dni = '12121212D';
+propiedades = '';
+for (let p in empleado2) {
+    propiedades += empleado2[p] + ' ';
 }
-console.log("Se vuelven a recorrer las propiedades de empleado2 y son: " + propiedades);
-console.log(empleado2)
+console.log('Se vuelven a recorrer las propiedades de empleado2 y son: ' + propiedades);
+console.log(empleado2);
 //En este caso la propiedad propia dni oculta a la del prototipo
 
 //BORRAMOS la propiedad dni de empleado2
 delete empleado2.dni;
 
-propiedades = "";
-for(let p in empleado2){
-  propiedades += empleado2[p] + " ";
+propiedades = '';
+for (let p in empleado2) {
+    propiedades += empleado2[p] + ' ';
 }
-console.log("Despues del borrado -> Se vuelven a recorrer las propiedades de empleado2 y son: " + propiedades);
-console.log(empleado2)
+console.log('Despues del borrado -> Se vuelven a recorrer las propiedades de empleado2 y son: ' + propiedades);
+console.log(empleado2);

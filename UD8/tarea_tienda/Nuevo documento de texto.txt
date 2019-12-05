@@ -1,0 +1,14 @@
+https://byspel.com/filtrar-tabla-html-con-javascript/
+
+http://notasweb.com/articulo/javascript/acceder-a-las-celdas-de-una-tabla.html
+
+https://www.lawebdelprogramador.com/codigo/JavaScript/4778-Filtrar-tabla-por-columnas.html
+
+https://codeday.me/es/qa/20181209/22344.html
+
+https://datatables.net/examples/data_sources/js_array.html
+https://anexsoft.com/reto-3-filtrar-una-tabla-con-javascript
+
+https://codeday.me/es/qa/20190421/533469.html
+crear una tabla html mediante un objecto con atributos y codigo js para filtrarla
+

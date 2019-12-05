@@ -53,74 +53,8 @@ function dibujarTabla() {
 
 function prepararSelecciones() {
   var colores = document.getElementsByTagName('td'); //sólo funciona sabiendo que los 6 primeros TDs pertenecen a los colores,
-  //sino habria que acceder al id "paleta" y luego a sus hijos
-
-  for (
-    i = 0;
-    i < 6;
-    i++ //colores
-  ) {
-    colores[i].id = i;
-    colores[i].addEventListener(
-      'click',
-      function() {
-        seleccionado(this);
-      },
-      false
-    );
-  }
 }
 
-function seleccionado(color) {
-  var colores = document.getElementsByTagName('td');
-  for (i = 0; i < 6; i++) {
-    colores[i].className = 'color' + (i + 1); //al seleccionar un color los pone todos al valor por defecto
-  }
+function seleccionado(propiedad) {}
 
-  switch (
-    color.id // cambia el className del color seleccionado
-  ) {
-    case '0':
-      colorSeleccionado = 'color1';
-      color.className = 'color1 seleccionado';
-      break;
-    case '1':
-      colorSeleccionado = 'color2';
-      color.className = 'color2 seleccionado';
-      break;
-    case '2':
-      colorSeleccionado = 'color3';
-      color.className = 'color3 seleccionado';
-      break;
-    case '3':
-      colorSeleccionado = 'color4';
-      color.className = 'color4 seleccionado';
-      break;
-    case '4':
-      colorSeleccionado = 'color5';
-      color.className = 'color5 seleccionado';
-      break;
-    case '5':
-      colorSeleccionado = 'color6';
-      color.className = 'color6 seleccionado';
-      break;
-  }
-}
-
-function activarPintar(td) {
-  if ((estadoPintar = true)) {
-    // se puede pintar
-    td.className = colorSeleccionado; // la primera vez pinta al hacer click
-  }
-}
-
-function desactivarPintar() {
-  estadoPintar = false; //al soltar el boton izquierdo desactiva pintar
-}
-
-function pintar(td) {
-  if (estadoPintar == true) {
-    //mientras pintar este activado pinta por donde pasa el raton
-    td.className = colorSeleccionado;
-  }
-}
+function activarPintar(td) {}

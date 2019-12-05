@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<!-- /* TAREA TIENDA
+En esta tarea para entregar se creará una página HTML sencilla
+en la que se pueda ver una tabla de productos. Cada producto
+tendrá su nombre, precio y puntuación.
+La página deberá cumplir las siguientes condiciones:
+1. La página incluirá un desplegable que permita ordenar la
+tabla en función de una de las tres propiedades que tienen
+los productos.
+2. También se permitirá hacer búsquedas en función del nombre
+del producto.
+3. Por lo que, la tabla se mostrará de una forma u otra en
+función de lo que esté seleccionado.
+4. Se utilizará todo lo aprendido sobre la nueva versión de
+Javascript, por lo tanto,:
+1. Deberán crearse clases y objectos Javascript para
+representar la información que vamos a procesar en esa
+página.
+2. No se podrán utilizar bucles tradicionales para recorridos
+y se deberán utilizar, en la medida de lo posible las
+funciones de arrays.
+3. Cualquier otra sintaxis novedosa de Javascript. */ -->
+
+<head>
+
+</head>
+
+<body>
+        <div style="text-align:center;">
+                <h1>Tenda de Productos</h1>
+        <form>
+           <h2> Buscador<input id="searchTerm" type="text" onkeyup="buscarEnTabla()" /></h2>
+        </form>
+        <br>
+        Selector de orden:
+        <select id="producto" name="producto" onchange="verSeleccion();">
+            <option value="1" selected>Nombre</option>
+            <option value="2">Precio</option>
+            <option value="3">Puntuacion</option>
+            </select>
+    
+       
+        <h2>
+    <table border="1" id="tabla" style="margin: 0 auto;">
+        <thead>
+            <tr>
+                <th onclick="ordenarTabla(0, 'str')">Nombre</th>
+                <th onclick="ordenarTabla(1, 'int')">Precio</th>
+                <th onclick="ordenarTabla(2, 'int')">Puntuacion</th>
+              </tr>
+        </thead>
+        <tbody id="cuerpo">
+
+        </tbody>
+    </table>
+</h2>
+</div>
+    <script>
+        class Producto {
+            constructor(nombre, precio, puntuacion) {
+                let _nombre = nombre;
+                let _precio = precio;
+                let _puntuacion = puntuacion;
+
+                this.getNombre = function() {
+                    return _nombre;
+                };
+                this.getPrecio = function() {
+                    return _precio;
+                };
+                this.getPuntuacion = function() {
+                    return _puntuacion;
+                };
+
+            }
+        }
+
+
+    window.onload = function() {
+        let productos = new Array();
+        let producto1 = new Producto('pementos', 1, 10);
+        let producto2 = new Producto('patatas', 4, 10);
+        let producto3 = new Producto('naranjas', 5, 10);
+        let producto4 = new Producto('azucar', 1, 7);
+        let producto5 = new Producto('sal', 2, 7);
+        let producto6 = new Producto('tomates', 9, 8);
+        let producto7 = new Producto('allo', 1, 7);
+        let producto8 = new Producto('perejil', 1, 7);
+
+        productos.push(producto1);
+        productos.push(producto2);
+        productos.push(producto3);
+        productos.push(producto4);
+        productos.push(producto5);
+        productos.push(producto6);
+        productos.push(producto7);
+        productos.push(producto8);
+
+
+        productos.forEach(p => {
+
+            var cuerpoTabla = document.getElementById("cuerpo");
+
+            var fila = document.createElement('tr');
+
+            var columnaNombre = document.createElement('td');
+            var columnaPrecio = document.createElement('td');
+            var columnaPuntuacion = document.createElement('td');
+
+
+            var nombre = document.createTextNode(p.getNombre());
+            var precio = document.createTextNode(p.getPrecio());
+            var puntuacion = document.createTextNode(p.getPuntuacion());
+
+
+            cuerpoTabla.appendChild(fila);
+            fila.appendChild(columnaNombre);
+            columnaNombre.appendChild(nombre);
+            fila.appendChild(columnaPrecio);
+            columnaPrecio.appendChild(precio);
+            fila.appendChild(columnaPuntuacion);
+            columnaPuntuacion.appendChild(puntuacion);
+
+        });
+        alert('Se puede ordenar pinchando en la celda correspondiente o en el desplegable');
+    }
+    function verSeleccion(){
+       
+/* Para obtener el valor */
+var selected = document.getElementById("producto").value;
+ 
+if (selected == 1){
+    ordenarTabla(0, 'str');
+    alert('Ordenando Nombres');
+}else if(selected == 2){
+    alert('Ordenando Precio');
+    ordenarTabla(1, 'int');
+}
+else if (selected == 3){
+    alert('Ordenando Puntuacion');
+    ordenarTabla(2, 'int');
+}
+
+}
+    function ordenarTabla(n,type) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+ 
+  table = document.getElementById("tabla");
+  switching = true;
+  //Establezca la dirección de clasificación en ascendente:
+  dir = "asc";
+ 
+  /*bucle que continuará hasta que no se haya realizado ningún cambio:*/
+  while (switching) {
+    //comenzamos sin realizar ningun cambio
+    switching = false;
+    rows = table.rows;
+    /*Recorre todas las filas de la tabla (excepto la primera, que contiene encabezados de tabla):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //comience diciendo que no debería haber cambio:
+      shouldSwitch = false;
+      /*Obtenga los dos elementos que desea comparar, uno de la fila actual y otro de la siguiente:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*compruebe si las dos filas deben cambiar de lugar, según la dirección, asc o desc:*/
+      if (dir == "asc") {
+        if ((type=="str" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) || (type=="int" && parseFloat(x.innerHTML) > parseFloat(y.innerHTML))) {
+          //Si es así, marcamos un interruptor y rompemos el bucle:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if ((type=="str" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) || (type=="int" && parseFloat(x.innerHTML) < parseFloat(y.innerHTML))) {
+          //Si es así, marcamos un interruptor y rompemos el bucle:
+          shouldSwitch = true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+/*    Si se ha marcado un cambio, realice el cambio y marque que se ha realizado un cambio: */
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /*Si no se ha realizado ningún cambio Y la dirección es "asc", configure la dirección en "desc" y ejecute el ciclo while nuevamente.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
+}
+function buscarEnTabla(){
+            const tableReg = document.getElementById('tabla');
+            const searchText = document.getElementById('searchTerm').value.toLowerCase();
+            let total = 0;
+ 
+            // Recorremos todas las filas con contenido de la tabla
+            for (let i = 1; i < tableReg.rows.length; i++) {
+                // Si el td tiene la clase "noSearch" no se busca en su cntenido
+                if (tableReg.rows[i].classList.contains("noSearch")) {
+                    continue;
+                }
+ 
+                let found = false;
+                const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                // Recorremos todas las celdas
+                for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                    // Buscamos el texto en el contenido de la celda
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    // si no ha encontrado ninguna coincidencia, esconde la
+                    // fila de la tabla
+                    tableReg.rows[i].style.display = 'none';
+                }
+            }
+
+        }
+    </script>
+
+    </script>
+</body>
+
+</html>

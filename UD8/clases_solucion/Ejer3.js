@@ -99,9 +99,9 @@ class Paciente {
 }
 
 // Pruebas
-
-let p1 = new Producto('111111F', 'Leo Cox', 'pulmonía');
-let p2 = new Producto('222222R', 'Lia Seoane', 'Infección');
+/* let Producto = new Object; */
+let p1 = new Paciente('111111F', 'Leo Cox', 'pulmonía');
+let p2 = new Paciente('222222R', 'Lia Seoane', 'Infección');
 console.log(`El paciente p1 : ${p1}`);
 console.log(`El paciente p2 : ${p2}`);
 

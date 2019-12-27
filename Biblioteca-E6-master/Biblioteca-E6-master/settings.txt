@@ -1,0 +1,26 @@
+{
+    "editor.wordWrap": "on",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Monokai",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "eslint.autoFixOnSave": true,
+    "eslint.alwaysShowStatus": true,
+    "eslint.experimental.incrementalSync": true,
+    "eslint.lintTask.enable": true,
+    "editor.suggestSelection": "first",
+    "javascript.validate.enable": false,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+        "editor.formatOnSave": true
+    },
+    "[javascript]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.typescript-language-features",
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "editor.minimap.enabled": false,
+}

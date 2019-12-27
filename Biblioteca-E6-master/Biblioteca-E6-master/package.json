@@ -1,0 +1,33 @@
+{
+  "name": "biblioteca",
+  "version": "1.0.0",
+  "description": "Haciendo una Tabla Dinamica",
+  "main": ".eslintrc.js",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "start": "http-server -p 8080"
+  },
+  "author": "Hamilton Mercado Cuellar",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "http-server": "^0.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hamelshmc/Biblioteca-E6.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hamelshmc/Biblioteca-E6/issues"
+  },
+  "homepage": "https://github.com/Hamelshmc/Biblioteca-E6#readme"
+}

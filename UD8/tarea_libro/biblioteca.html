@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+
+</head>
+
+<body>
+    <div style="text-align:center;">
+        <h1>Tenda de Productos</h1>
+        <form>
+            <h2> Buscador<input id="textoBusqueda" type="text" onkeyup="buscarEnTabla();" /></h2>
+        </form>
+        <br> Selector de orden:
+        <select id="producto" name="producto" onchange="ordenarTablaPorValor();">
+            <option value="Nombre" selected>Nombre</option>
+            <option value="Precio">Precio</option>
+            <option value="Puntuacion">Puntuacion</option>
+        </select>
+
+
+        <h2>
+            <table border="1" id="tabla" style="margin: 0 auto;">
+                <thead>
+                    <tr>
+                        <th value="Nombre" onclick="ordenarTablaPorValor();">Nombre</th>
+                        <th value="Precio" onclick="ordenarTablaPorValor();">Precio</th>
+                        <th value="Puntuacion" onclick="ordenarTablaPorValor();">Puntuacion</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo">
+
+                </tbody>
+            </table>
+        </h2>
+    </div>
+    <script>
+        class Producto {
+            constructor(nombre, precio, puntuacion) {
+                let _nombre = nombre;
+                let _precio = precio;
+                let _puntuacion = puntuacion;
+
+                this.getNombre = function() {
+                    return _nombre;
+                };
+                this.getPrecio = function() {
+                    return _precio;
+                };
+                this.getPuntuacion = function() {
+                    return _puntuacion;
+                };
+
+            }
+
+        }
+        let almacenProductos = new Producto();
+        almacenProductos = [{
+            "nombre": "Chevrolet",
+            "precio": 81369,
+            "puntuacion": 6
+        }, {
+            "nombre": "Pontiac",
+            "precio": 28764,
+            "puntuacion": 2
+        }, {
+            "nombre": "Jeep",
+            "precio": 87223,
+            "puntuacion": 10
+        }, {
+            "nombre": "GMC",
+            "precio": 55322,
+            "puntuacion": 3
+        }, {
+            "nombre": "Ford",
+            "precio": 96656,
+            "puntuacion": 4
+        }, {
+            "nombre": "Mitsubishi",
+            "precio": 23556,
+            "puntuacion": 8
+        }, {
+            "nombre": "Land Rover",
+            "precio": 20649,
+            "puntuacion": 5
+        }, {
+            "nombre": "Honda",
+            "precio": 38641,
+            "puntuacion": 4
+        }, {
+            "nombre": "Lincoln",
+            "precio": 79368,
+            "puntuacion": 1
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 7086,
+            "puntuacion": 2
+        }, {
+            "nombre": "Chrysler",
+            "precio": 60242,
+            "puntuacion": 2
+        }, {
+            "nombre": "Acura",
+            "precio": 79407,
+            "puntuacion": 10
+        }, {
+            "nombre": "Pontiac",
+            "precio": 25363,
+            "puntuacion": 7
+        }, {
+            "nombre": "Isuzu",
+            "precio": 46506,
+            "puntuacion": 7
+        }, {
+            "nombre": "Pontiac",
+            "precio": 23989,
+            "puntuacion": 9
+        }, {
+            "nombre": "Mazda",
+            "precio": 7166,
+            "puntuacion": 6
+        }, {
+            "nombre": "Mitsubishi",
+            "precio": 69825,
+            "puntuacion": 9
+        }, {
+            "nombre": "Mercedes-Benz",
+            "precio": 55854,
+            "puntuacion": 7
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 74838,
+            "puntuacion": 7
+        }, {
+            "nombre": "Ford",
+            "precio": 49537,
+            "puntuacion": 8
+        }, {
+            "nombre": "Jaguar",
+            "precio": 17490,
+            "puntuacion": 4
+        }, {
+            "nombre": "Mazda",
+            "precio": 58548,
+            "puntuacion": 5
+        }, {
+            "nombre": "Mercury",
+            "precio": 83544,
+            "puntuacion": 5
+        }, {
+            "nombre": "Chrysler",
+            "precio": 96298,
+            "puntuacion": 9
+        }, {
+            "nombre": "Jeep",
+            "precio": 69145,
+            "puntuacion": 7
+        }, {
+            "nombre": "Kia",
+            "precio": 31684,
+            "puntuacion": 1
+        }, {
+            "nombre": "Tesla",
+            "precio": 58009,
+            "puntuacion": 6
+        }, {
+            "nombre": "Mercedes-Benz",
+            "precio": 22161,
+            "puntuacion": 10
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 45900,
+            "puntuacion": 8
+        }, {
+            "nombre": "Lexus",
+            "precio": 43986,
+            "puntuacion": 3
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 92315,
+            "puntuacion": 3
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 18985,
+            "puntuacion": 5
+        }, {
+            "nombre": "Dodge",
+            "precio": 52968,
+            "puntuacion": 8
+        }, {
+            "nombre": "Mercedes-Benz",
+            "precio": 39843,
+            "puntuacion": 4
+        }, {
+            "nombre": "Cadillac",
+            "precio": 47163,
+            "puntuacion": 1
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 65169,
+            "puntuacion": 8
+        }, {
+            "nombre": "Eagle",
+            "precio": 72199,
+            "puntuacion": 8
+        }, {
+            "nombre": "Lotus",
+            "precio": 89465,
+            "puntuacion": 3
+        }, {
+            "nombre": "Porsche",
+            "precio": 89287,
+            "puntuacion": 7
+        }, {
+            "nombre": "Mercedes-Benz",
+            "precio": 63074,
+            "puntuacion": 8
+        }, {
+            "nombre": "Mercury",
+            "precio": 30442,
+            "puntuacion": 9
+        }, {
+            "nombre": "Suzuki",
+            "precio": 41184,
+            "puntuacion": 5
+        }, {
+            "nombre": "Honda",
+            "precio": 79618,
+            "puntuacion": 10
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 18379,
+            "puntuacion": 10
+        }, {
+            "nombre": "Dodge",
+            "precio": 31572,
+            "puntuacion": 4
+        }, {
+            "nombre": "BMW",
+            "precio": 85142,
+            "puntuacion": 5
+        }, {
+            "nombre": "Chevrolet",
+            "precio": 24835,
+            "puntuacion": 7
+        }, {
+            "nombre": "Buick",
+            "precio": 3496,
+            "puntuacion": 3
+        }, {
+            "nombre": "Pontiac",
+            "precio": 65404,
+            "puntuacion": 6
+        }, {
+            "nombre": "GMC",
+            "precio": 8695,
+            "puntuacion": 1
+        }];
+
+        let cuerpoTabla = document.getElementById("cuerpo");
+
+        function cargarTabla() {
+
+            almacenProductos.forEach(p => {
+
+
+
+                var fila = document.createElement('tr');
+
+                var columnaNombre = document.createElement('td');
+                var columnaPrecio = document.createElement('td');
+                var columnaPuntuacion = document.createElement('td');
+
+
+                var nombre = document.createTextNode(p.nombre);
+                var precio = document.createTextNode(p.precio);
+                var puntuacion = document.createTextNode(p.puntuacion);
+
+
+                cuerpoTabla.appendChild(fila);
+                fila.appendChild(columnaNombre);
+                columnaNombre.appendChild(nombre);
+                fila.appendChild(columnaPrecio);
+                columnaPrecio.appendChild(precio);
+                fila.appendChild(columnaPuntuacion);
+                columnaPuntuacion.appendChild(puntuacion);
+
+            });
+        }
+
+        function ordenarTablaPorValor() {
+            /*          alert('Se puede ordenar pinchando en la celda correspondiente'); */
+            /* Para obtener el valor */
+            var selected = document.getElementById("producto").value;
+            if (selected === "Nombre") {
+                almacenProductos.sort(function(a, b) {
+                    if (a.nombre > b.nombre) {
+                        return 1;
+                    }
+                    if (a.nombre < b.nombre) {
+                        return -1;
+                    }
+                    return 0;
+                });
+                cuerpoTabla.innerHTML = "";
+                cargarTabla();
+
+            } //oredenamos y mostramos resultados
+            else if (selected === "Precio") {
+                almacenProductos.sort(function(a, b) {
+                    return a.precio - b.precio;
+                });
+                cuerpoTabla.innerHTML = "";
+                cargarTabla();
+            } else if (selected == "Puntuacion") {
+                almacenProductos.sort(function(a, b) {
+                    return a.puntuacion - b.puntuacion;
+                });
+                cuerpoTabla.innerHTML = "";
+                cargarTabla();
+            }
+
+
+        }
+
+
+        function buscarEnTabla() {
+            const tableReg = document.getElementById('tabla');
+            const searchText = document.getElementById('textoBusqueda').value.toLowerCase();
+            let total = 0;
+
+            // Recorremos todas las filas con contenido de la tabla
+            for (let i = 1; i < tableReg.rows.length; i++) {
+
+
+                let found = false;
+                const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                // Recorremos todas las celdas
+                for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+                    // Buscamos el texto en el contenido de la celda
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    // si no ha encontrado ninguna coincidencia, esconde la
+                    // fila de la tabla
+                    tableReg.rows[i].style.display = 'none';
+                }
+            }
+
+        }
+
+        function buscador() {
+            const textoBuscar = document.getElementById('textoBusqueda').value.toLowerCase();
+            let found = false;
+            almacenProductos.forEach(producto => {
+                const productoAbuscar = producto.nombre.toLowerCase();
+                if (productoAbuscar.indexOf(textoBuscar) >= 0) {
+                    found = true;
+                    cuerpoTabla.innerHTML = "";
+                }
+                if (found) {
+                    let almacen = [];
+                    almacen.push(producto);
+                    actualizarTabla(producto)
+                }
+
+
+            });
+
+
+        }
+
+        function actualizarTabla(producto) {
+            var fila = document.createElement('tr');
+
+            var columnaNombre = document.createElement('td');
+            var columnaPrecio = document.createElement('td');
+            var columnaPuntuacion = document.createElement('td');
+
+
+            var nombre = document.createTextNode(producto.nombre);
+            var precio = document.createTextNode(producto.precio);
+            var puntuacion = document.createTextNode(producto.puntuacion);
+
+
+            cuerpoTabla.appendChild(fila);
+            fila.appendChild(columnaNombre);
+            columnaNombre.appendChild(nombre);
+            fila.appendChild(columnaPrecio);
+            columnaPrecio.appendChild(precio);
+            fila.appendChild(columnaPuntuacion);
+            columnaPuntuacion.appendChild(puntuacion);
+        }
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{
+  "name": "learn-javascript",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=8.10.0"
+  },
+  "description": "Aprediendo JavaScript",
+  "scripts": {
+    "start": "http-server -p 8080"
+  },
+  "author": "Hamel",
+  "license": "ISC",
+  "dependencies": {
+    "prompt": "^1.0.0",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "http-server": "^0.11.1",
+    "prettier": "^1.19.1"
+  },
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hamelshmc/LearnJavaScript-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Hamelshmc/LearnJavaScript-/issues"
+  },
+  "homepage": "https://github.com/Hamelshmc/LearnJavaScript-#readme"
+}

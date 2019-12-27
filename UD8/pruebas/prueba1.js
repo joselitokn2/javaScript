@@ -26,21 +26,21 @@ function dibujarTabla() {
       creandoTD.id = c; // Ponemos las IDs los TDs
       creandoTD.addEventListener(
         'mousedown',
-        function() {
+        function () {
           activarPintar(this);
         },
         false
       ); //evento para pintar al hacer clic
       creandoTD.addEventListener(
         'mouseover',
-        function() {
+        function () {
           pintar(this);
         },
         false
       ); //evento para pintar moviendo el raton
       creandoTD.addEventListener(
         'mouseup',
-        function() {
+        function () {
           desactivarPintar();
         },
         false
@@ -55,6 +55,6 @@ function prepararSelecciones() {
   var colores = document.getElementsByTagName('td'); //sólo funciona sabiendo que los 6 primeros TDs pertenecen a los colores,
 }
 
-function seleccionado(propiedad) {}
+function seleccionado(propiedad) { }
 
-function activarPintar(td) {}
+function activarPintar(td) { }

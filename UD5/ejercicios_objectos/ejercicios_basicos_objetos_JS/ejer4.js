@@ -64,7 +64,7 @@ const prestadosForOf = function(biblio) {
     let info = [];
     console.log('\nRECORRIDO CON EL ITERADOR FOR OF');
     //Ejemplo de desestructuración en un objeto, no usamos [] porque es un objeto.
-    for (let { titulo, prestado }
+    for (let { titulo, prestado}
         of biblio) {
         let dato = [];
         dato[0] = titulo;
@@ -112,19 +112,19 @@ const recorrer = function(prestados) {
     for (let [titulo, prestado] of prestados) {
         //for(let dato of prestados) -> codigo sin desestructurar
         //Ejemplo de una expresion condicional aplicada en un string template
-        console.log(`El libro ${titulo} está ${prestado ? 'prestado' : 'no prestado'}`);
+        console.log(`El libro ${titulo} está ${prestado ? 'prestado' : 'no prestado'} `);
         //console.log(`El libro ${dato[0]} está ${dato[1] ? 'prestado' : 'no prestado'}`); -> codigo sin desestructurar
     }
 };
 
 let informacion = null;
-//informacion = prestadosForIn(biblioteca);
+informacion = prestadosForIn(biblioteca);
 console.log('\n RECORRER SALIDA FOR OF');
 informacion = prestadosForOf(biblioteca);
 recorrer(informacion);
-//informacion = prestadosForEach(biblioteca);
-//console.log("\n RECORRER SALIDA FOR EACH");
-//recorrer(informacion);
+informacion = prestadosForEach(biblioteca);
+console.log("\n RECORRER SALIDA FOR EACH");
+recorrer(informacion);
 for (let l of biblioteca) {
     let dato = [];
     (dato[0] = l.titulo), (dato[1] = l['prestado']);

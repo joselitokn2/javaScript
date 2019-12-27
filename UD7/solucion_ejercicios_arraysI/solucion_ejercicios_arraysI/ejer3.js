@@ -6,4 +6,4 @@ console.log(`Prueba 1: ${cada_x(almacen, 1)}`);
 console.log(`Prueba 2: ${cada_x(almacen, 2)}`);
 console.log(`Prueba 3: ${cada_x(almacen, 3)}`);
 console.log(`Prueba 4: ${cada_x(almacen, 4)}`);
-console.log(`Array original: ${a}`); //filter no modifica a
+console.log(`Array original: ${almacen}`); //filter no modifica a
